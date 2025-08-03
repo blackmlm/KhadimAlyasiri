@@ -52,14 +52,32 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
-            opacity: 0.6;
+            z-index: 1;
+            opacity: 0.8;
+        }
+        
+        /* === Space Background === */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at top, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at left, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at right, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
         }
         
         /* === Modern Enhancements === */
         .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.2);
         }
         
         .hover-lift {
@@ -72,7 +90,7 @@
         }
         
         .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -97,9 +115,10 @@
             top: 0.6rem;
             width: 6px;
             height: 6px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
             border-radius: 50%;
             transform: translateY(-50%);
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
         }
         
         /* === Mobile Header Control === */
@@ -149,8 +168,9 @@
         /* === Mobile Header Specific Styles === */
         @media (max-width: 767px) {
             .mobile-header-gradient {
-                background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.95) 100%);
-                backdrop-filter: blur(10px);
+                background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.95) 100%);
+                backdrop-filter: blur(15px);
+                border-bottom: 1px solid rgba(148, 163, 184, 0.3);
             }
             
             .mobile-header-name {
@@ -233,9 +253,9 @@
                 display: none;
             }
             
-            /* Reduce particle count on mobile */
+            /* Reduce particle visibility on mobile */
             #particles-canvas {
-                opacity: 0.3;
+                opacity: 0.6;
             }
         }
         
@@ -294,7 +314,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800 antialiased">
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 text-gray-100 antialiased relative overflow-x-hidden">
     
     <!-- Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
@@ -312,7 +332,7 @@
                 <div>
                     <div class="relative inline-block">
                         <span class="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 h-3 top-3 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-80"></span>
-                        <h1 class="relative z-10 mobile-header-name font-semibold leading-tight tracking-tight text-gray-900">
+                        <h1 class="relative z-10 mobile-header-name font-semibold leading-tight tracking-tight text-white">
                             Khadim Alyasiri
                         </h1>
                     </div>
@@ -320,7 +340,7 @@
                 </div>
                 
                 <!-- Mobile Contact -->
-                <div class="flex flex-wrap justify-center gap-3 mobile-header-contact text-gray-600">
+                <div class="flex flex-wrap justify-center gap-3 mobile-header-contact text-slate-300">
                     <div class="flex items-center gap-1.5">
                         <i data-lucide="phone" class="w-3 h-3 text-blue-600 flex-shrink-0"></i>
                         <span>(520) 251-4696</span>
@@ -342,42 +362,42 @@
         <article class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 tablet-layout rounded-xl sm:rounded-3xl overflow-hidden shadow-2xl glass-effect hover-lift">
             
             <!-- =============== SIDEBAR =============== -->
-            <aside class="bg-gradient-to-b from-gray-50 to-gray-100 px-4 sm:px-8 py-8 sm:py-12 lg:py-16 tablet-sidebar mobile-sidebar-adjust flex flex-col gap-8 sm:gap-14 mobile-section-spacing mobile-xs-section">
+            <aside class="bg-gradient-to-b from-slate-800/70 to-slate-900/80 backdrop-blur-sm px-4 sm:px-8 py-8 sm:py-12 lg:py-16 tablet-sidebar mobile-sidebar-adjust flex flex-col gap-8 sm:gap-14 mobile-section-spacing mobile-xs-section border-r border-slate-700/50">
                 
                 <!-- PROFILE -->
                 <section class="animate-fade-up" style="animation-delay: 0.1s;">
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-900 relative mb-5">
-                        <span class="after:absolute after:w-12 after:h-px after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:-right-16 after:top-1/2 mobile-hide-decorative">Profile</span>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-white relative mb-5 drop-shadow-sm">
+                        <span class="after:absolute after:w-12 after:h-px after:bg-gradient-to-r after:from-blue-400 after:to-purple-400 after:-right-16 after:top-1/2 mobile-hide-decorative">Profile</span>
                     </h2>
-                    <p class="text-sm leading-relaxed text-gray-600">
+                    <p class="text-sm leading-relaxed text-slate-200 drop-shadow-sm">
                         Dedicated and customer-focused professional with experience in customer service, front desk operations, kitchen work, grounds maintenance, and leadership. Strong organizational, interpersonal, and communication skills, with a background in social media management and summer camp direction. Passionate about fostering community, providing excellent service, and creating positive environments.
                     </p>
                 </section>
                 
                 <!-- EDUCATION -->
                 <section class="animate-fade-up" style="animation-delay: 0.2s;">
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-900 mb-5">Education</h2>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Education</h2>
                     <div class="space-y-6">
                         <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-800">Current Student</p>
-                            <p class="text-sm text-gray-600">Southwestern Adventist University</p>
-                            <p class="text-xs text-gray-400">Present</p>
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100">Current Student</p>
+                            <p class="text-sm text-slate-200">Southwestern Adventist University</p>
+                            <p class="text-xs text-slate-400">Present</p>
                         </div>
                         <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-800">High School Diploma</p>
-                            <p class="text-sm text-gray-600">Thunderbird Adventist Academy</p>
-                            <p class="text-xs text-gray-400">Graduated</p>
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100">High School Diploma</p>
+                            <p class="text-sm text-slate-200">Thunderbird Adventist Academy</p>
+                            <p class="text-xs text-slate-400">Graduated</p>
                         </div>
                     </div>
                 </section>
                 
                 <!-- SKILLS -->
                 <section class="animate-fade-up" style="animation-delay: 0.3s;">
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-900 mb-5">Skills</h2>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Skills</h2>
                     <div class="space-y-7">
                         <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-2">Professional</p>
-                            <ul class="space-y-1 text-sm text-gray-600">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Professional</p>
+                            <ul class="space-y-1 text-sm text-slate-200">
                                 <li class="custom-bullet">Customer Service & Front Desk Operations</li>
                                 <li class="custom-bullet">Food Prep & Kitchen Safety</li>
                                 <li class="custom-bullet">Social Media Management & Digital Marketing</li>
@@ -387,8 +407,8 @@
                             </ul>
                         </div>
                         <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-800 mb-2">Additional Skills</p>
-                            <ul class="space-y-1 text-sm text-gray-600">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Additional Skills</p>
+                            <ul class="space-y-1 text-sm text-slate-200">
                                 <li class="custom-bullet">Communication & Problem-Solving</li>
                             </ul>
                         </div>
@@ -411,7 +431,7 @@
                         <div class="flex-1">
                             <div class="relative inline-block">
                                 <span class="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 h-6 top-6 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-80"></span>
-                                <h1 class="relative z-10 text-3xl sm:text-5xl lg:text-6xl mobile-name mobile-xs-name font-semibold leading-none tracking-tight text-gray-900">
+                                <h1 class="relative z-10 text-3xl sm:text-5xl lg:text-6xl mobile-name mobile-xs-name font-semibold leading-none tracking-tight text-white">
                                     Khadim<br>Alyasiri
                                 </h1>
                             </div>
@@ -421,15 +441,15 @@
                     
                     <!-- Contact -->
                     <div class="mt-6 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mobile-contact">
-                        <div class="flex items-center gap-2 sm:gap-3 text-gray-600 text-xs sm:text-sm">
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
                             <i data-lucide="phone" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
                             <span>(520) 251-4696</span>
                         </div>
-                        <div class="flex items-center gap-2 sm:gap-3 text-gray-600 text-xs sm:text-sm">
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
                             <i data-lucide="mail" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
                             <span class="break-all sm:break-normal">Khadimalyasiri@gmail.com</span>
                         </div>
-                        <div class="flex items-center gap-2 sm:gap-3 text-gray-600 text-xs sm:text-sm">
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
                             <i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
                             <span>Born: July 17, 2003</span>
                         </div>
@@ -438,7 +458,7 @@
                 
                 <!-- EXPERIENCE -->
                 <section class="animate-fade-up" style="animation-delay: 0.5s;">
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-900 mb-6 sm:mb-9">Work Experience</h2>
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9">Work Experience</h2>
                     
                     <!-- JOB 1 - Cook -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
@@ -446,10 +466,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Cook</h3>
-                                <p class="text-sm text-gray-600">Chipotle Mexican Grill — Burelson, Texas | May 2025 – August 2025</p>
+                                <p class="text-sm text-slate-300">Chipotle Mexican Grill — Burelson, Texas | May 2025 – August 2025</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Prepared and cooked menu items following Chipotle's quality standards.</li>
                             <li class="custom-bullet">Maintained a clean and sanitary kitchen, adhering to food safety regulations.</li>
                             <li class="custom-bullet">Supported team during high-volume hours with efficiency and accuracy.</li>
@@ -463,10 +483,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Front Desk Worker</h3>
-                                <p class="text-sm text-gray-600">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
+                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Provided excellent customer service to residents and guests.</li>
                             <li class="custom-bullet">Handled check-ins, visitor access, and administrative support.</li>
                             <li class="custom-bullet">Responded to student inquiries and coordinated maintenance requests.</li>
@@ -479,10 +499,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Resident Assistant (RA)</h3>
-                                <p class="text-sm text-gray-600">Southwestern Adventist University & Walla Walla University | September 2023 – March 2025</p>
+                                <p class="text-sm text-slate-300">Southwestern Adventist University & Walla Walla University | September 2023 – March 2025</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Mentored students and fostered a safe, inclusive residential community.</li>
                             <li class="custom-bullet">Planned and led events to promote student engagement.</li>
                             <li class="custom-bullet">Enforced housing policies and mediated conflicts when needed.</li>
@@ -495,10 +515,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Janitor</h3>
-                                <p class="text-sm text-gray-600">Walla Walla University — College Place, WA | August 2022 – July 2023</p>
+                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | August 2022 – July 2023</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Cleaned and maintained classrooms, offices, and public areas.</li>
                             <li class="custom-bullet">Performed basic repairs and collaborated with the facilities team.</li>
                         </ul>
@@ -510,17 +530,17 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Grounds Crew Member</h3>
-                                <p class="text-sm text-gray-600">Thunderbird Academy — Scottsdale, AZ | August 2020 – July 2022</p>
+                                <p class="text-sm text-slate-300">Thunderbird Academy — Scottsdale, AZ | August 2020 – July 2022</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Maintained campus grounds and landscaping.</li>
                             <li class="custom-bullet">Operated lawn care equipment and managed seasonal tasks.</li>
                         </ul>
                     </div>
                     
                     <!-- LEADERSHIP & COMMUNICATIONS EXPERIENCE -->
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-900 mb-6 sm:mb-9 mt-8 sm:mt-16">Leadership & Communications Experience</h2>
+                    <h2 class="text-xs font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9 mt-8 sm:mt-16">Leadership & Communications Experience</h2>
                     
                     <!-- Summer Camp Leadership -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
@@ -528,10 +548,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Summer Camp Leadership</h3>
-                                <p class="text-sm text-gray-600">Camp Yavapines — Prescott, AZ | Summers 2020 – 2024</p>
+                                <p class="text-sm text-slate-300">Camp Yavapines — Prescott, AZ | Summers 2020 – 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Directed daily camp operations and ensured camper safety.</li>
                             <li class="custom-bullet">Led a team of counselors and coordinated programming.</li>
                             <li class="custom-bullet">Designed leadership development and team-building activities.</li>
@@ -545,10 +565,10 @@
                             <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Social Media Manager</h3>
-                                <p class="text-sm text-gray-600">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
+                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-gray-600">
+                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
                             <li class="custom-bullet">Created and managed digital content for student life and events.</li>
                             <li class="custom-bullet">Increased engagement through interactive posts and campaigns.</li>
                             <li class="custom-bullet">Monitored performance metrics and adjusted strategy accordingly.</li>
@@ -602,14 +622,32 @@
                 this.particles = [];
                 
                 for (let i = 0; i < particleCount; i++) {
+                    // Create space-themed particle colors
+                    const colorType = Math.random();
+                    let color;
+                    if (colorType < 0.3) {
+                        // Blue stars
+                        color = `hsl(${200 + Math.random() * 40}, 80%, ${70 + Math.random() * 20}%)`;
+                    } else if (colorType < 0.6) {
+                        // Purple/Pink nebula
+                        color = `hsl(${280 + Math.random() * 40}, 70%, ${60 + Math.random() * 30}%)`;
+                    } else if (colorType < 0.8) {
+                        // White/Silver stars
+                        color = `hsl(${0}, 0%, ${80 + Math.random() * 20}%)`;
+                    } else {
+                        // Cyan accents
+                        color = `hsl(${180 + Math.random() * 20}, 90%, ${70 + Math.random() * 20}%)`;
+                    }
+                    
                     this.particles.push({
                         x: Math.random() * this.canvas.width,
                         y: Math.random() * this.canvas.height,
-                        vx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
-                        vy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
-                        radius: Math.random() * (isMobile ? 1.5 : 2) + 1,
-                        opacity: Math.random() * (isMobile ? 0.3 : 0.5) + 0.2,
-                        color: `hsl(${220 + Math.random() * 40}, 70%, 70%)`
+                        vx: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3),
+                        vy: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3),
+                        radius: Math.random() * (isMobile ? 2 : 3) + 0.5,
+                        opacity: Math.random() * (isMobile ? 0.6 : 0.8) + 0.3,
+                        color: color,
+                        twinkle: Math.random() * 0.02 + 0.01 // Add twinkling effect
                     });
                 }
             }
@@ -644,15 +682,15 @@
             
             updateParticles() {
                 this.particles.forEach(particle => {
-                    // Mouse interaction
+                    // Mouse interaction with gentler force for space theme
                     const dx = this.mouse.x - particle.x;
                     const dy = this.mouse.y - particle.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
                     
-                    if (distance < 100) {
-                        const force = (100 - distance) / 100;
-                        particle.vx += (dx / distance) * force * 0.01;
-                        particle.vy += (dy / distance) * force * 0.01;
+                    if (distance < 120) {
+                        const force = (120 - distance) / 120;
+                        particle.vx += (dx / distance) * force * 0.005;
+                        particle.vy += (dy / distance) * force * 0.005;
                     }
                     
                     // Update position
@@ -667,37 +705,31 @@
                     particle.x = Math.max(0, Math.min(this.canvas.width, particle.x));
                     particle.y = Math.max(0, Math.min(this.canvas.height, particle.y));
                     
-                    // Damping
-                    particle.vx *= 0.99;
-                    particle.vy *= 0.99;
+                    // Twinkling effect for stars
+                    particle.opacity += (Math.random() - 0.5) * particle.twinkle;
+                    particle.opacity = Math.max(0.2, Math.min(1, particle.opacity));
+                    
+                    // Gentler damping for floating effect
+                    particle.vx *= 0.995;
+                    particle.vy *= 0.995;
                 });
             }
             
             drawParticles() {
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 
-                this.particles.forEach(particle => {
-                    this.ctx.save();
-                    this.ctx.globalAlpha = particle.opacity;
-                    this.ctx.fillStyle = particle.color;
-                    this.ctx.beginPath();
-                    this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                    this.ctx.restore();
-                });
-                
-                // Draw connections
+                // Draw particle connections first (so they appear behind particles)
                 this.particles.forEach((particle, i) => {
                     this.particles.slice(i + 1).forEach(otherParticle => {
                         const dx = particle.x - otherParticle.x;
                         const dy = particle.y - otherParticle.y;
                         const distance = Math.sqrt(dx * dx + dy * dy);
                         
-                        if (distance < 150) {
+                        if (distance < 120) {
                             this.ctx.save();
-                            this.ctx.globalAlpha = (150 - distance) / 150 * 0.1;
-                            this.ctx.strokeStyle = particle.color;
-                            this.ctx.lineWidth = 1;
+                            this.ctx.globalAlpha = (120 - distance) / 120 * 0.15;
+                            this.ctx.strokeStyle = '#60a5fa'; // Space blue for connections
+                            this.ctx.lineWidth = 0.5;
                             this.ctx.beginPath();
                             this.ctx.moveTo(particle.x, particle.y);
                             this.ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -705,6 +737,34 @@
                             this.ctx.restore();
                         }
                     });
+                });
+                
+                // Draw particles with glow effect
+                this.particles.forEach(particle => {
+                    this.ctx.save();
+                    
+                    // Outer glow
+                    this.ctx.globalAlpha = particle.opacity * 0.3;
+                    this.ctx.fillStyle = particle.color;
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    
+                    // Inner bright particle
+                    this.ctx.globalAlpha = particle.opacity;
+                    this.ctx.fillStyle = particle.color;
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    
+                    // Core bright center for star effect
+                    this.ctx.globalAlpha = Math.min(1, particle.opacity * 1.5);
+                    this.ctx.fillStyle = 'white';
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.radius * 0.3, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    
+                    this.ctx.restore();
                 });
             }
             
