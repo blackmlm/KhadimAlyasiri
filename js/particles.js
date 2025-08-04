@@ -24,17 +24,17 @@ class ParticleSystem {
     }
     
     createParticles() {
-        // Mobile optimization: reduce particle count significantly on mobile devices
+        // Enhanced particle counts for better visual effects
         const isMobile = window.innerWidth < 768;
         const isSmallMobile = window.innerWidth < 480;
         
         let particleCount;
         if (isSmallMobile) {
-            particleCount = Math.min(15, window.innerWidth / 40);
-        } else if (isMobile) {
             particleCount = Math.min(25, window.innerWidth / 30);
+        } else if (isMobile) {
+            particleCount = Math.min(40, window.innerWidth / 20);
         } else {
-            particleCount = Math.min(50, window.innerWidth / 20);
+            particleCount = Math.min(100, window.innerWidth / 15);
         }
         
         this.particles = [];
@@ -60,12 +60,14 @@ class ParticleSystem {
             this.particles.push({
                 x: Math.random() * this.canvas.width,
                 y: Math.random() * this.canvas.height,
-                vx: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3),
-                vy: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3),
-                radius: Math.random() * (isMobile ? 2 : 3) + 0.5,
-                opacity: Math.random() * (isMobile ? 0.6 : 0.8) + 0.3,
+                vx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
+                vy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
+                radius: Math.random() * (isMobile ? 2.5 : 4) + 0.8,
+                opacity: Math.random() * (isMobile ? 0.7 : 0.9) + 0.4,
                 color: color,
-                twinkle: Math.random() * 0.02 + 0.01 // Add twinkling effect
+                twinkle: Math.random() * 0.03 + 0.015, // Enhanced twinkling
+                pulsePhase: Math.random() * Math.PI * 2, // For pulsing effect
+                driftSpeed: Math.random() * 0.5 + 0.2 // Gentle drift movement
             });
         }
     }
@@ -99,55 +101,85 @@ class ParticleSystem {
     }
     
     updateParticles() {
+        const time = Date.now() * 0.001; // Time for animations
+        
         this.particles.forEach(particle => {
-            // Mouse interaction with gentler force for space theme
+            // Enhanced mouse interaction with attraction and repulsion
             const dx = this.mouse.x - particle.x;
             const dy = this.mouse.y - particle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             
-            if (distance < 120) {
-                const force = (120 - distance) / 120;
-                particle.vx += (dx / distance) * force * 0.005;
-                particle.vy += (dy / distance) * force * 0.005;
+            if (distance < 150) {
+                const force = (150 - distance) / 150;
+                const attractionForce = force * 0.008;
+                particle.vx += (dx / distance) * attractionForce;
+                particle.vy += (dy / distance) * attractionForce;
             }
+            
+            // Add gentle drift movement
+            particle.vx += Math.sin(time * particle.driftSpeed + particle.pulsePhase) * 0.002;
+            particle.vy += Math.cos(time * particle.driftSpeed + particle.pulsePhase) * 0.002;
             
             // Update position
             particle.x += particle.vx;
             particle.y += particle.vy;
             
-            // Boundary collision
-            if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
-            if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+            // Enhanced boundary collision with smooth wrapping
+            if (particle.x < -10) {
+                particle.x = this.canvas.width + 10;
+                particle.vx *= 0.8;
+            }
+            if (particle.x > this.canvas.width + 10) {
+                particle.x = -10;
+                particle.vx *= 0.8;
+            }
+            if (particle.y < -10) {
+                particle.y = this.canvas.height + 10;
+                particle.vy *= 0.8;
+            }
+            if (particle.y > this.canvas.height + 10) {
+                particle.y = -10;
+                particle.vy *= 0.8;
+            }
             
-            // Keep particles in bounds
-            particle.x = Math.max(0, Math.min(this.canvas.width, particle.x));
-            particle.y = Math.max(0, Math.min(this.canvas.height, particle.y));
+            // Enhanced twinkling with pulsing effect
+            particle.pulsePhase += particle.twinkle;
+            const pulse = Math.sin(particle.pulsePhase) * 0.3 + 0.7;
+            particle.opacity = Math.max(0.3, Math.min(1, pulse));
             
-            // Twinkling effect for stars
-            particle.opacity += (Math.random() - 0.5) * particle.twinkle;
-            particle.opacity = Math.max(0.2, Math.min(1, particle.opacity));
+            // Enhanced radius pulsing
+            particle.baseRadius = particle.baseRadius || particle.radius;
+            particle.radius = particle.baseRadius * (0.8 + Math.sin(time * 2 + particle.pulsePhase) * 0.2);
             
-            // Gentler damping for floating effect
-            particle.vx *= 0.995;
-            particle.vy *= 0.995;
+            // Smooth damping for floating effect
+            particle.vx *= 0.992;
+            particle.vy *= 0.992;
         });
     }
     
     drawParticles() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        // Draw particle connections first (so they appear behind particles)
+        // Enhanced particle connections with gradient lines
         this.particles.forEach((particle, i) => {
             this.particles.slice(i + 1).forEach(otherParticle => {
                 const dx = particle.x - otherParticle.x;
                 const dy = particle.y - otherParticle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 120) {
+                if (distance < 140) {
                     this.ctx.save();
-                    this.ctx.globalAlpha = (120 - distance) / 120 * 0.15;
-                    this.ctx.strokeStyle = '#64748b'; // Professional slate for connections
-                    this.ctx.lineWidth = 0.5;
+                    
+                    // Create gradient line
+                    const gradient = this.ctx.createLinearGradient(
+                        particle.x, particle.y, otherParticle.x, otherParticle.y
+                    );
+                    gradient.addColorStop(0, `rgba(100, 116, 139, ${(140 - distance) / 140 * 0.25})`);
+                    gradient.addColorStop(0.5, `rgba(148, 163, 184, ${(140 - distance) / 140 * 0.4})`);
+                    gradient.addColorStop(1, `rgba(100, 116, 139, ${(140 - distance) / 140 * 0.25})`);
+                    
+                    this.ctx.strokeStyle = gradient;
+                    this.ctx.lineWidth = (140 - distance) / 140 * 1.5;
                     this.ctx.beginPath();
                     this.ctx.moveTo(particle.x, particle.y);
                     this.ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -157,30 +189,61 @@ class ParticleSystem {
             });
         });
         
-        // Draw particles with glow effect
+        // Enhanced particles with multiple glow layers
         this.particles.forEach(particle => {
             this.ctx.save();
             
-            // Outer glow
-            this.ctx.globalAlpha = particle.opacity * 0.3;
+            // Outer soft glow
+            this.ctx.globalAlpha = particle.opacity * 0.15;
             this.ctx.fillStyle = particle.color;
             this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.radius * 2, 0, Math.PI * 2);
+            this.ctx.arc(particle.x, particle.y, particle.radius * 3.5, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            // Middle glow
+            this.ctx.globalAlpha = particle.opacity * 0.4;
+            this.ctx.fillStyle = particle.color;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.radius * 2.2, 0, Math.PI * 2);
             this.ctx.fill();
             
             // Inner bright particle
-            this.ctx.globalAlpha = particle.opacity;
+            this.ctx.globalAlpha = particle.opacity * 0.8;
             this.ctx.fillStyle = particle.color;
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
             this.ctx.fill();
             
-            // Core bright center for star effect
-            this.ctx.globalAlpha = Math.min(1, particle.opacity * 1.5);
+            // Bright white core
+            this.ctx.globalAlpha = Math.min(1, particle.opacity * 1.2);
             this.ctx.fillStyle = 'white';
             this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, particle.radius * 0.3, 0, Math.PI * 2);
+            this.ctx.arc(particle.x, particle.y, particle.radius * 0.4, 0, Math.PI * 2);
             this.ctx.fill();
+            
+            // Add sparkle effect for some particles
+            if (Math.random() < 0.1) {
+                this.ctx.globalAlpha = particle.opacity * 0.8;
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                
+                // Draw sparkle rays
+                for (let i = 0; i < 4; i++) {
+                    const angle = (i * Math.PI) / 2 + Date.now() * 0.002;
+                    const rayLength = particle.radius * 1.8;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(
+                        particle.x + Math.cos(angle) * particle.radius * 0.3,
+                        particle.y + Math.sin(angle) * particle.radius * 0.3
+                    );
+                    this.ctx.lineTo(
+                        particle.x + Math.cos(angle) * rayLength,
+                        particle.y + Math.sin(angle) * rayLength
+                    );
+                    this.ctx.lineWidth = 1;
+                    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+                    this.ctx.stroke();
+                }
+            }
             
             this.ctx.restore();
         });
