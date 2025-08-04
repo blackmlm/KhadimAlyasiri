@@ -22,6 +22,7 @@
         
         body {
             font-family: var(--font-body);
+            font-size: 1.125rem;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -56,7 +57,7 @@
             opacity: 0.8;
         }
         
-        /* === Space Background === */
+        /* === Professional Background === */
         body::before {
             content: '';
             position: fixed;
@@ -65,10 +66,10 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at top, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at left, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at right, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+                radial-gradient(ellipse at top, rgba(51, 65, 85, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(71, 85, 105, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at left, rgba(30, 41, 59, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at right, rgba(51, 65, 85, 0.08) 0%, transparent 50%);
             z-index: 0;
             pointer-events: none;
         }
@@ -76,8 +77,8 @@
         /* === Modern Enhancements === */
         .glass-effect {
             backdrop-filter: blur(15px);
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.25);
         }
         
         .hover-lift {
@@ -90,10 +91,9 @@
         }
         
         .text-gradient {
-            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
+            font-weight: 500;
+            font-size: 1.5rem;
         }
         
         /* === Responsive Profile Image === */
@@ -115,10 +115,10 @@
             top: 0.6rem;
             width: 6px;
             height: 6px;
-            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
+            background: linear-gradient(135deg, #475569 0%, #64748b 50%, #334155 100%);
             border-radius: 50%;
             transform: translateY(-50%);
-            box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 6px rgba(71, 85, 105, 0.3);
         }
         
         /* === Mobile Header Control === */
@@ -168,7 +168,7 @@
         /* === Mobile Header Specific Styles === */
         @media (max-width: 767px) {
             .mobile-header-gradient {
-                background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.95) 100%);
+                background: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(51,65,85,0.95) 100%);
                 backdrop-filter: blur(15px);
                 border-bottom: 1px solid rgba(148, 163, 184, 0.3);
             }
@@ -246,7 +246,7 @@
             }
             
             .mobile-text-sm {
-                font-size: 0.875rem;
+                font-size: 1rem;
             }
             
             .mobile-hide-decorative::after {
@@ -314,7 +314,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 text-gray-100 antialiased relative overflow-x-hidden">
+<body class="bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800 text-gray-100 antialiased relative overflow-x-hidden">
     
     <!-- Particle Canvas -->
     <canvas id="particles-canvas"></canvas>
@@ -331,7 +331,7 @@
                 <!-- Mobile Name & Title -->
                 <div>
                     <div class="relative inline-block">
-                        <span class="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 h-3 top-3 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-80"></span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-slate-400 to-slate-500 h-3 top-3 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-60"></span>
                         <h1 class="relative z-10 mobile-header-name font-semibold leading-tight tracking-tight text-white">
                             Khadim Alyasiri
                         </h1>
@@ -342,15 +342,15 @@
                 <!-- Mobile Contact -->
                 <div class="flex flex-wrap justify-center gap-3 mobile-header-contact text-slate-300">
                     <div class="flex items-center gap-1.5">
-                        <i data-lucide="phone" class="w-3 h-3 text-blue-600 flex-shrink-0"></i>
+                        <i data-lucide="phone" class="w-3 h-3 text-slate-400 flex-shrink-0"></i>
                         <span>(520) 251-4696</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                        <i data-lucide="mail" class="w-3 h-3 text-blue-600 flex-shrink-0"></i>
+                        <i data-lucide="mail" class="w-3 h-3 text-slate-400 flex-shrink-0"></i>
                         <span class="break-all">Khadimalyasiri@gmail.com</span>
                     </div>
                     <div class="flex items-center gap-1.5">
-                        <i data-lucide="calendar" class="w-3 h-3 text-blue-600 flex-shrink-0"></i>
+                        <i data-lucide="calendar" class="w-3 h-3 text-slate-400 flex-shrink-0"></i>
                         <span>Born: July 17, 2003</span>
                     </div>
                 </div>
@@ -366,38 +366,38 @@
                 
                 <!-- PROFILE -->
                 <section class="animate-fade-up" style="animation-delay: 0.1s;">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-white relative mb-5 drop-shadow-sm">
+                    <h2 class="text-base font-bold uppercase tracking-wider text-white relative mb-5 drop-shadow-sm">
                         <span class="after:absolute after:w-12 after:h-px after:bg-gradient-to-r after:from-blue-400 after:to-purple-400 after:-right-16 after:top-1/2 mobile-hide-decorative">Profile</span>
                     </h2>
-                    <p class="text-sm leading-relaxed text-slate-200 drop-shadow-sm">
+                    <p class="text-base leading-relaxed text-slate-200 drop-shadow-sm">
                         Dedicated and customer-focused professional with experience in customer service, front desk operations, kitchen work, grounds maintenance, and leadership. Strong organizational, interpersonal, and communication skills, with a background in social media management and summer camp direction. Passionate about fostering community, providing excellent service, and creating positive environments.
                     </p>
                 </section>
                 
                 <!-- EDUCATION -->
                 <section class="animate-fade-up" style="animation-delay: 0.2s;">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Education</h2>
+                    <h2 class="text-base font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Education</h2>
                     <div class="space-y-6">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100">Current Student</p>
-                            <p class="text-sm text-slate-200">Southwestern Adventist University</p>
-                            <p class="text-xs text-slate-400">Present</p>
+                            <p class="text-sm font-bold uppercase tracking-wider text-slate-100">Current Student</p>
+                            <p class="text-base text-slate-200">Southwestern Adventist University</p>
+                            <p class="text-sm text-slate-400">Present</p>
                         </div>
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100">High School Diploma</p>
-                            <p class="text-sm text-slate-200">Thunderbird Adventist Academy</p>
-                            <p class="text-xs text-slate-400">Graduated</p>
+                            <p class="text-sm font-bold uppercase tracking-wider text-slate-100">High School Diploma</p>
+                            <p class="text-base text-slate-200">Thunderbird Adventist Academy</p>
+                            <p class="text-sm text-slate-400">Graduated</p>
                         </div>
                     </div>
                 </section>
                 
                 <!-- SKILLS -->
                 <section class="animate-fade-up" style="animation-delay: 0.3s;">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Skills</h2>
+                    <h2 class="text-base font-bold uppercase tracking-wider text-white mb-5 drop-shadow-sm">Skills</h2>
                     <div class="space-y-7">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Professional</p>
-                            <ul class="space-y-1 text-sm text-slate-200">
+                            <p class="text-sm font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Professional</p>
+                            <ul class="space-y-1 text-base text-slate-200">
                                 <li class="custom-bullet">Customer Service & Front Desk Operations</li>
                                 <li class="custom-bullet">Food Prep & Kitchen Safety</li>
                                 <li class="custom-bullet">Social Media Management & Digital Marketing</li>
@@ -407,8 +407,8 @@
                             </ul>
                         </div>
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Additional Skills</p>
-                            <ul class="space-y-1 text-sm text-slate-200">
+                            <p class="text-sm font-bold uppercase tracking-wider text-slate-100 mb-2 drop-shadow-sm">Additional Skills</p>
+                            <ul class="space-y-1 text-base text-slate-200">
                                 <li class="custom-bullet">Communication & Problem-Solving</li>
                             </ul>
                         </div>
@@ -430,7 +430,7 @@
                         <!-- Name & Title -->
                         <div class="flex-1">
                             <div class="relative inline-block">
-                                <span class="absolute inset-0 bg-gradient-to-r from-blue-300 to-purple-300 h-6 top-6 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-80"></span>
+                                <span class="absolute inset-0 bg-gradient-to-r from-slate-400 to-slate-500 h-6 top-6 -left-2 right-2 -z-0 rounded-lg blur-sm opacity-60"></span>
                                 <h1 class="relative z-10 text-3xl sm:text-5xl lg:text-6xl mobile-name mobile-xs-name font-semibold leading-none tracking-tight text-white">
                                     Khadim<br>Alyasiri
                                 </h1>
@@ -441,16 +441,16 @@
                     
                     <!-- Contact -->
                     <div class="mt-6 sm:mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mobile-contact">
-                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
-                            <i data-lucide="phone" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-sm sm:text-base">
+                            <i data-lucide="phone" class="w-3 h-3 sm:w-4 sm:h-4 text-slate-400 flex-shrink-0"></i>
                             <span>(520) 251-4696</span>
                         </div>
-                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
-                            <i data-lucide="mail" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-sm sm:text-base">
+                            <i data-lucide="mail" class="w-3 h-3 sm:w-4 sm:h-4 text-slate-400 flex-shrink-0"></i>
                             <span class="break-all sm:break-normal">Khadimalyasiri@gmail.com</span>
                         </div>
-                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-xs sm:text-sm">
-                            <i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0"></i>
+                        <div class="flex items-center gap-2 sm:gap-3 text-slate-300 text-sm sm:text-base">
+                            <i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 text-slate-400 flex-shrink-0"></i>
                             <span>Born: July 17, 2003</span>
                         </div>
                     </div>
@@ -458,18 +458,18 @@
                 
                 <!-- EXPERIENCE -->
                 <section class="animate-fade-up" style="animation-delay: 0.5s;">
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9">Work Experience</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9">Work Experience</h2>
                     
                     <!-- JOB 1 - Cook -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Cook</h3>
-                                <p class="text-sm text-slate-300">Chipotle Mexican Grill — Burelson, Texas | May 2025 – August 2025</p>
+                                <p class="text-base text-slate-300">Chipotle Mexican Grill — Burelson, Texas | May 2025 – August 2025</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Prepared and cooked menu items following Chipotle's quality standards.</li>
                             <li class="custom-bullet">Maintained a clean and sanitary kitchen, adhering to food safety regulations.</li>
                             <li class="custom-bullet">Supported team during high-volume hours with efficiency and accuracy.</li>
@@ -480,13 +480,13 @@
                     <!-- JOB 2 - Front Desk Worker -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Front Desk Worker</h3>
-                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
+                                <p class="text-base text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Provided excellent customer service to residents and guests.</li>
                             <li class="custom-bullet">Handled check-ins, visitor access, and administrative support.</li>
                             <li class="custom-bullet">Responded to student inquiries and coordinated maintenance requests.</li>
@@ -496,13 +496,13 @@
                     <!-- JOB 3 - Resident Assistant -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Resident Assistant (RA)</h3>
-                                <p class="text-sm text-slate-300">Southwestern Adventist University & Walla Walla University | September 2023 – March 2025</p>
+                                <p class="text-base text-slate-300">Southwestern Adventist University & Walla Walla University | September 2023 – March 2025</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Mentored students and fostered a safe, inclusive residential community.</li>
                             <li class="custom-bullet">Planned and led events to promote student engagement.</li>
                             <li class="custom-bullet">Enforced housing policies and mediated conflicts when needed.</li>
@@ -512,13 +512,13 @@
                     <!-- JOB 4 - Janitor -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Janitor</h3>
-                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | August 2022 – July 2023</p>
+                                <p class="text-base text-slate-300">Walla Walla University — College Place, WA | August 2022 – July 2023</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Cleaned and maintained classrooms, offices, and public areas.</li>
                             <li class="custom-bullet">Performed basic repairs and collaborated with the facilities team.</li>
                         </ul>
@@ -527,31 +527,31 @@
                     <!-- JOB 5 - Grounds Crew Member -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Grounds Crew Member</h3>
-                                <p class="text-sm text-slate-300">Thunderbird Academy — Scottsdale, AZ | August 2020 – July 2022</p>
+                                <p class="text-base text-slate-300">Thunderbird Academy — Scottsdale, AZ | August 2020 – July 2022</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Maintained campus grounds and landscaping.</li>
                             <li class="custom-bullet">Operated lawn care equipment and managed seasonal tasks.</li>
                         </ul>
                     </div>
                     
                     <!-- LEADERSHIP & COMMUNICATIONS EXPERIENCE -->
-                    <h2 class="text-xs font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9 mt-8 sm:mt-16">Leadership & Communications Experience</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white mb-6 sm:mb-9 mt-8 sm:mt-16">Leadership & Communications Experience</h2>
                     
                     <!-- Summer Camp Leadership -->
                     <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-14 mobile-experience-spacing">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Summer Camp Leadership</h3>
-                                <p class="text-sm text-slate-300">Camp Yavapines — Prescott, AZ | Summers 2020 – 2024</p>
+                                <p class="text-base text-slate-300">Camp Yavapines — Prescott, AZ | Summers 2020 – 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Directed daily camp operations and ensured camper safety.</li>
                             <li class="custom-bullet">Led a team of counselors and coordinated programming.</li>
                             <li class="custom-bullet">Designed leadership development and team-building activities.</li>
@@ -562,13 +562,13 @@
                     <!-- Social Media Manager -->
                     <div class="space-y-4 sm:space-y-6">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                            <span class="mt-1 w-2 h-2 bg-gradient-to-r from-slate-500 to-slate-600 rounded-full"></span>
                             <div>
                                 <h3 class="text-sm font-semibold uppercase tracking-wide">Social Media Manager</h3>
-                                <p class="text-sm text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
+                                <p class="text-base text-slate-300">Walla Walla University — College Place, WA | September 2023 – March 2024</p>
                             </div>
                         </div>
-                        <ul class="pl-6 space-y-1 text-sm text-slate-300">
+                        <ul class="pl-6 space-y-1 text-base text-slate-300">
                             <li class="custom-bullet">Created and managed digital content for student life and events.</li>
                             <li class="custom-bullet">Increased engagement through interactive posts and campaigns.</li>
                             <li class="custom-bullet">Monitored performance metrics and adjusted strategy accordingly.</li>
@@ -622,21 +622,21 @@
                 this.particles = [];
                 
                 for (let i = 0; i < particleCount; i++) {
-                    // Create space-themed particle colors
+                    // Create professional particle colors
                     const colorType = Math.random();
                     let color;
-                    if (colorType < 0.3) {
-                        // Blue stars
-                        color = `hsl(${200 + Math.random() * 40}, 80%, ${70 + Math.random() * 20}%)`;
-                    } else if (colorType < 0.6) {
-                        // Purple/Pink nebula
-                        color = `hsl(${280 + Math.random() * 40}, 70%, ${60 + Math.random() * 30}%)`;
-                    } else if (colorType < 0.8) {
-                        // White/Silver stars
-                        color = `hsl(${0}, 0%, ${80 + Math.random() * 20}%)`;
+                    if (colorType < 0.4) {
+                        // Professional blue-gray
+                        color = `hsl(${210 + Math.random() * 20}, 25%, ${65 + Math.random() * 20}%)`;
+                    } else if (colorType < 0.7) {
+                        // Neutral gray
+                        color = `hsl(${220 + Math.random() * 10}, 15%, ${70 + Math.random() * 15}%)`;
+                    } else if (colorType < 0.9) {
+                        // Light silver
+                        color = `hsl(${0}, 0%, ${75 + Math.random() * 15}%)`;
                     } else {
-                        // Cyan accents
-                        color = `hsl(${180 + Math.random() * 20}, 90%, ${70 + Math.random() * 20}%)`;
+                        // Subtle slate accent
+                        color = `hsl(${200 + Math.random() * 15}, 20%, ${60 + Math.random() * 20}%)`;
                     }
                     
                     this.particles.push({
@@ -728,7 +728,7 @@
                         if (distance < 120) {
                             this.ctx.save();
                             this.ctx.globalAlpha = (120 - distance) / 120 * 0.15;
-                            this.ctx.strokeStyle = '#60a5fa'; // Space blue for connections
+                            this.ctx.strokeStyle = '#64748b'; // Professional slate for connections
                             this.ctx.lineWidth = 0.5;
                             this.ctx.beginPath();
                             this.ctx.moveTo(particle.x, particle.y);
