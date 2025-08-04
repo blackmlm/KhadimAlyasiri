@@ -8,17 +8,20 @@ This is a single-page personal resume website for Khadim Alyasiri, built as a st
 
 ## Project Structure
 
-- `index.html` - Main resume page with embedded styles and JavaScript
+- `index.html` - Main resume page (clean HTML structure)
+- `css/styles.css` - Custom styles and responsive design
+- `js/particles.js` - Particle system and interactive animations
 - `images/khadim.png` - Profile picture
 - `.gitignore` - Version control exclusions (includes .yoyo/ directory)
 
 ## Architecture
 
-### Single-File Architecture
-The entire website is contained in one HTML file (`index.html`) with:
-- Embedded CSS styles in `<style>` tag (lines 17-315)
-- Embedded JavaScript in `<script>` tag (lines 582-783)
-- External dependencies loaded via CDN (Tailwind CSS, Lucide Icons, Google Fonts)
+### Modular Architecture
+The website follows a standard separation of concerns:
+- **HTML** (`index.html`) - Semantic structure and content
+- **CSS** (`css/styles.css`) - All styling, animations, and responsive design
+- **JavaScript** (`js/particles.js`) - Interactive particle system and Lucide icon initialization
+- **External dependencies** loaded via CDN (Tailwind CSS, Lucide Icons, Google Fonts)
 
 ### CSS Architecture
 - **Base Styles**: CSS custom properties for fonts, keyframe animations
